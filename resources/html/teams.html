@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+  <div class="columns">
+    <div class="column">
+      <h3>Teams</h3>
+      <ul class="messages">
+        <table>
+          <tr>
+            <th>Team Name</th>
+            <th>Stadium Name</th>
+            <th>City Name</th>
+            <th>Capacity</th>
+          </tr>
+          {% for item in teams %}
+          <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.stadium}}</td>
+            <td>{{item.city}}</td>
+            <td>{{item.capacity}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

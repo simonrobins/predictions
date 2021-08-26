@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+  <div class="columns">
+    <div class="column">
+      <h3>Fixtures</h3>
+      <table>
+        <tr>
+          <th style="text-align: left;">Home</th>
+          <th style="text-align: left;">Away</th>
+          <th style="text-align: left;">Result</th>
+        </tr>
+        {% for fixture in fixtures %}
+        <tr>
+          <td>{{fixture.home_team}}</td>
+          <td>{{fixture.away_team}}</td>
+          <td>
+            <select>
+              <option value="H">Home</option>
+              <option value="A">Away</option>
+              <option value="D">Draw</option>
+            </select>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+  <div class="columns">
+    <div class="column">
+      <h3>Users</h3>
+      <ul class="messages">
+        {% for item in users %}
+        <li>
+          <p>{{item.id}} : {{item.initials}}  - {{item.name}}&nbsp;<a href="/{{item.id}}">X</a> </p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <form method="POST" action="/">
+        {% csrf-field %}
+        <p>
+          Initials:
+          <input class="input" name="initials" value="{{initials}}" />
+        </p>
+        {% if errors.initials %}
+        <div class="notification is-danger">{{errors.initials|join}}</div>
+        {% endif %}
+        <p>
+          Name:
+          <input class="input" type="text" name="name" value="{{name}}" />
+        </p>
+        {% if errors.name %}
+        <div class="notification is-danger">{{errors.name|join}}</div>
+        {% endif %}
+        <input type="submit" class="button is-primary" value="comment" />
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

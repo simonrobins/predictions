@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Predictions</title>
+
+    <!-- styles -->
+    {% style """/assets/bulma/css/bulma.min.css" %}
+    {% style """/assets/material-icons/css/material-icons.min.css" %}
+
+    {% style """/css/screen.css" %}
+  </head>
+  <body id="{{page}}">
+      <!-- navbar -->
+      <nav class="navbar is-info">
+          <div class="container">
+              <div id="nav-menu" class="navbar-menu">
+                  <div class="navbar-start">
+                      <span class="navbar-item" style="font-weight:bold;">Predictions</span>
+                      <a href="/users" class="navbar-item users-is-active">Users</a>
+                      <a href="/teams" class="navbar-item{% ifequal page "teams" %} is-active{%endifequal%}">Teams</a>
+                      <a href="/fixtures" class="navbar-item{% ifequal page "fixtures" %} is-active{%endifequal%}">Fixtures</a>
+                  </div>
+              </div>
+          </div>
+      </nav>
+
+      <section class="section">
+          <div class="container">
+              {% block content %}{% endblock %}
+          </div>
+      </section>
+
+    {% block page-scripts %}{% endblock %}
+  </body>
+</html>
